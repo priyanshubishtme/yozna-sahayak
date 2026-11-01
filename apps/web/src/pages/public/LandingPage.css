@@ -1,0 +1,841 @@
+/* Yojana Sahayak — Premium Indian Civic Design System */
+
+.yl, .yl-head {
+  --cream: #fff6e5;
+  --ink: #1b1f3b;
+  --saf: #ff8a1f;
+  --sky: #7aa2ff;
+  --leaf: #2fbf85;
+  --rose: #ff7a93;
+  --card: #ffffff;
+  --mute: #454b66;
+  font-family: 'Inter', 'Noto Sans Devanagari', system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .yl,
+  :root:not([data-theme="light"]) .yl-head {
+    --cream: #12152a;
+    --ink: #fff6e5;
+    --card: #1c2040;
+    --mute: #c4c9de;
+    --saf: #e07a1a;
+    --sky: #5b82e0;
+    --leaf: #1f9b6a;
+    --rose: #e0607a;
+  }
+}
+
+[data-theme="dark"] .yl,
+[data-theme="dark"] .yl-head,
+.dark .yl,
+.dark .yl-head {
+  --cream: #12152a;
+  --ink: #fff6e5;
+  --card: #1c2040;
+  --mute: #c4c9de;
+  --saf: #e07a1a;
+  --sky: #5b82e0;
+  --leaf: #1f9b6a;
+  --rose: #e0607a;
+}
+
+.yl {
+  background: var(--cream);
+  padding-bottom: calc(48px + env(safe-area-inset-bottom));
+  overflow-x: hidden;
+  min-height: calc(100vh - 64px);
+}
+
+.yl *, .yl-head * {
+  box-sizing: border-box;
+}
+
+.yl a, .yl-head a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.yl :focus-visible, .yl-head :focus-visible {
+  outline: 3px solid var(--sky);
+  outline-offset: 2px;
+}
+
+.yl h1, .yl h2, .yl b {
+  font-family: "Baloo 2", Inter, "Noto Sans Devanagari", sans-serif;
+}
+
+/* Header */
+.yl-head {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 20px;
+  background: var(--card);
+  border-bottom: 2px solid var(--ink);
+}
+
+.yl-brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.yl-brand b {
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.yl-brand small {
+  font-size: 11.5px;
+  letter-spacing: .09em;
+  color: var(--mute);
+}
+
+.yl-logo {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--leaf);
+  color: #1b1f3b;
+  border: 2px solid var(--ink);
+  font-size: 20px;
+}
+
+.yl-logo.big {
+  width: 52px;
+  height: 52px;
+  font-size: 24px;
+}
+
+.yl-head nav {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex: 1;
+  margin-left: 10px;
+}
+
+.yl-head nav a {
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+.yl-head nav a:hover {
+  background: var(--cream);
+}
+
+.yl-head nav .chat {
+  background: color-mix(in srgb, var(--leaf) 28%, transparent);
+  color: var(--ink);
+}
+
+.yl-head nav .cta {
+  background: var(--leaf);
+  color: #1b1f3b;
+  border: 2px solid var(--ink);
+  margin-left: auto;
+}
+
+.yl-head nav .ghost {
+  border: 2px solid var(--ink);
+}
+
+.yl-tools {
+  display: flex;
+  gap: 8px;
+}
+
+.yl-ic {
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 2px solid var(--ink);
+  background: var(--card);
+  color: var(--ink);
+  font: 700 .95rem inherit;
+  cursor: pointer;
+}
+
+.yl-ic.menu {
+  display: none;
+}
+
+/* Hero Section */
+.yl-hero, .yl-sec {
+  max-width: 1120px;
+  margin: auto;
+  padding: 48px 20px 0;
+}
+
+.yl-hero {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.yl-badge {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--leaf) 25%, var(--card));
+  border: 2px solid var(--ink);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.yl h1 {
+  font-size: clamp(2.3rem, 5.6vw, 4.2rem);
+  line-height: 1.02;
+  font-weight: 800;
+  margin: 16px 0 14px;
+  letter-spacing: -.015em;
+  color: var(--ink);
+}
+
+.yl mark {
+  background: var(--saf);
+  color: #1b1f3b;
+  padding: 0 .14em;
+  border-radius: .16em;
+}
+
+.yl-sub {
+  font-size: 1.15rem;
+  color: var(--mute);
+  max-width: 52ch;
+  margin: 0 0 22px;
+}
+
+.yl-search {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-right-width: 6px;
+  border-bottom-width: 6px;
+  border-radius: 18px;
+}
+
+.yl-search input, .yl-ask input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: 1rem inherit;
+  padding: 0 12px;
+  min-height: 50px;
+}
+
+.yl-search input:focus, .yl-ask input:focus {
+  outline: 0;
+}
+
+.yl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 24px;
+  border-radius: 14px;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--cream) !important;
+  font: 700 1.1rem "Baloo 2", inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform .12s;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.yl-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.yl-btn.big {
+  min-height: 58px;
+  font-size: 1.25rem;
+  padding: 0 30px;
+}
+
+.yl-btn.alt {
+  background: var(--saf);
+  color: #1b1f3b !important;
+}
+
+.yl-btn.ghost {
+  background: var(--card);
+  color: var(--ink) !important;
+}
+
+.yl-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.yl-chips a, .yl-chips button {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  background: var(--card);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background .15s, transform .15s;
+}
+
+.yl-chips a:hover, .yl-chips button:hover {
+  background: var(--saf);
+  color: #1b1f3b;
+  transform: translateY(-2px);
+}
+
+/* Waving Indian Tricolor Flag */
+.yl-art {
+  position: relative;
+  min-height: 360px;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.yl-pole {
+  position: absolute;
+  left: 0;
+  top: 4%;
+  bottom: 4%;
+  width: 10px;
+  border-radius: 6px;
+  background: var(--ink);
+  z-index: 2;
+}
+
+.yl-pole:before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--saf);
+  border: 2px solid var(--ink);
+}
+
+.yl-fw {
+  position: absolute;
+  left: 16px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  aspect-ratio: 4/3;
+}
+
+.yl-flag {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(8px 10px 0 rgba(27, 31, 59, .22));
+}
+
+.yl-chakra {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 36%;
+  transform: translate(-50%, -50%);
+  animation: spin 40s linear infinite;
+  filter: drop-shadow(0 4px 0 rgba(27, 31, 59, .25));
+  pointer-events: none;
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Journey Card */
+.yl-journey {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-right-width: 8px;
+  border-bottom-width: 8px;
+  border-radius: 26px;
+  padding: 24px;
+}
+
+.yl-jh {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.yl h2 {
+  font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+  margin: 0;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.yl-jh ol {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.yl-jh li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px 4px 4px;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  opacity: .8;
+  background: var(--card);
+  color: var(--ink);
+}
+
+.yl-jh li.on {
+  opacity: 1;
+  background: var(--saf);
+  color: #1b1f3b;
+}
+
+.yl-jh em, .yl-how em {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--cream);
+  font: 700 .85rem inherit;
+  font-style: normal;
+}
+
+.yl-sentence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(1.1rem, 2.6vw, 1.6rem);
+  font-weight: 600;
+}
+
+.yl-sentence label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.yl select {
+  font: 700 1rem "Baloo 2", inherit;
+  color: #1b1f3b;
+  min-height: 52px;
+  max-width: 100%;
+  padding: 0 16px;
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.c-saf { background: var(--saf) !important; color: #1b1f3b !important; }
+.c-sky { background: var(--sky) !important; color: #1b1f3b !important; }
+.c-leaf { background: var(--leaf) !important; color: #1b1f3b !important; }
+.c-rose { background: var(--rose) !important; color: #1b1f3b !important; }
+
+.yl-note {
+  margin: 12px 2px 0;
+  color: var(--mute);
+  font-size: 1rem;
+}
+
+.yl-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.yl-stats div {
+  padding: 16px;
+  border-radius: 16px;
+  border: 2px solid var(--ink);
+  background: var(--card);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.yl-stats b {
+  display: block;
+  font-size: 2rem;
+  color: var(--leaf);
+}
+
+.yl-stats span {
+  font-size: 1rem;
+  color: var(--mute);
+}
+
+/* Chat Card */
+.yl-chat {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-right-width: 8px;
+  border-bottom-width: 8px;
+  border-radius: 26px;
+  padding: 24px;
+}
+
+.yl-chead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.yl-chead > div:first-of-type {
+  flex: 1;
+  min-width: 220px;
+}
+
+.yl-chead p {
+  margin: 2px 0 0;
+  color: var(--mute);
+}
+
+.yl-seg {
+  display: inline-flex;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.yl-seg button {
+  min-height: 46px;
+  padding: 0 18px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: 700 .95rem inherit;
+  cursor: pointer;
+}
+
+.yl-seg .on {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.yl-prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.yl-prompts button {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 2px solid var(--ink);
+  background: var(--cream);
+  color: var(--ink);
+  font: 600 1rem inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.yl-prompts button:hover {
+  background: var(--sky);
+  color: #1b1f3b;
+}
+
+.yl-ask {
+  display: flex;
+  gap: 10px;
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  padding: 6px;
+  background: var(--cream);
+}
+
+/* Tiles, Features, How It Works */
+.yl-p {
+  margin: 4px 0 0;
+  color: var(--mute);
+  font-size: 1.05rem;
+}
+
+.yl-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.yl-tile {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 104px;
+  padding: 18px;
+  border: 2px solid var(--ink);
+  border-right-width: 6px;
+  border-bottom-width: 6px;
+  border-radius: 22px;
+  color: #1b1f3b !important;
+  transition: transform .12s;
+  cursor: pointer;
+}
+
+.yl-tile:hover {
+  transform: translate(2px, 2px);
+}
+
+.yl-tile span {
+  font-size: 42px;
+}
+
+.yl-tile b {
+  font-size: 1.4rem;
+  line-height: 1.1;
+  color: #1b1f3b;
+}
+
+.yl-tile i {
+  font-style: normal;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1b1f3b;
+}
+
+.yl-feats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.yl-feat {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  padding: 18px;
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+  background: var(--card);
+  transition: transform .12s;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.yl-feat:hover {
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.yl-feat .ic {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  border: 2px solid var(--ink);
+  font-size: 24px;
+}
+
+.yl-feat b {
+  font-size: 1.15rem;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.yl-feat p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--mute);
+}
+
+.yl-how {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.yl-how li {
+  padding: 18px;
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+  background: var(--card);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.yl-how b {
+  display: block;
+  margin: 8px 0 2px;
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+.yl-how p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--mute);
+}
+
+.yl-band {
+  max-width: 1120px;
+  margin: 56px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 28px;
+  padding: 30px 32px;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--saf);
+}
+
+.yl-band h2 {
+  color: var(--cream);
+}
+
+.yl-band p {
+  margin: 6px 0 0;
+  max-width: 46ch;
+  color: color-mix(in srgb, var(--cream) 80%, transparent);
+}
+
+@media (max-width: 1160px) {
+  .yl-band {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.yl-foot {
+  text-align: center;
+  margin: 26px 20px 0;
+  color: var(--mute);
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .yl-hero {
+    grid-template-columns: 1fr;
+  }
+  .yl-art {
+    min-height: 260px;
+    order: -1;
+  }
+  .yl-feats, .yl-how, .yl-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .yl-tiles {
+    grid-template-columns: 1fr 1fr;
+  }
+  .yl-ic.menu {
+    display: inline-block;
+  }
+  .yl-head nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--card);
+    padding: 12px 20px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .yl-head nav.open {
+    display: flex;
+  }
+  .yl-head nav .cta {
+    margin-left: 0;
+  }
+  .yl-tools {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .yl-hero, .yl-sec {
+    padding-top: 24px;
+  }
+  .yl-feats, .yl-how, .yl-tiles, .yl-stats {
+    grid-template-columns: 1fr;
+  }
+  .yl-search, .yl-ask {
+    flex-wrap: wrap;
+  }
+  .yl-search .yl-btn, .yl-ask .yl-btn {
+    width: 100%;
+  }
+  .yl-sentence label {
+    width: 100%;
+  }
+  .yl select {
+    flex: 1;
+    width: 100%;
+  }
+  .yl-sentence .yl-btn {
+    width: 100%;
+  }
+  .yl-journey, .yl-chat {
+    padding: 18px;
+  }
+  .yl-art {
+    max-width: 300px;
+    min-height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yl-chakra {
+    animation: none;
+  }
+  .yl-btn, .yl-tile, .yl-feat {
+    transition: none;
+  }
+}
