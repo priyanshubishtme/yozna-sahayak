@@ -1,0 +1,370 @@
+[
+  {
+    "id": "P01_UP_SMALL_FARMER",
+    "name": "Ramesh Kumar",
+    "profile": {
+      "age": 42,
+      "state": "UP",
+      "is_farmer": true,
+      "owns_cultivable_land": true,
+      "has_aadhaar": true,
+      "ekyc_completed": true,
+      "is_income_tax_payer": false,
+      "is_institutional_landholder": false,
+      "is_constitutional_post_holder": false,
+      "is_rural_resident": true,
+      "has_pucca_house": false,
+      "is_bpl": true
+    },
+    "expected": {
+      "SCHEME-PM-KISAN": "Likely Eligible",
+      "SCHEME-PMAY-G": "Eligible",
+      "SCHEME-PM-JAY": "Eligible",
+      "SCHEME-UK-OLD-AGE": "Not Eligible"
+    }
+  },
+  {
+    "id": "P02_TAX_PAYER_FARMER",
+    "name": "Vijay Singh",
+    "profile": {
+      "age": 48,
+      "state": "BR",
+      "is_farmer": true,
+      "owns_cultivable_land": true,
+      "has_aadhaar": true,
+      "ekyc_completed": true,
+      "is_income_tax_payer": true,
+      "is_institutional_landholder": false,
+      "is_constitutional_post_holder": false
+    },
+    "expected": {
+      "SCHEME-PM-KISAN": "Not Eligible"
+    }
+  },
+  {
+    "id": "P03_TENANT_FARMER_NO_LAND",
+    "name": "Sunil Gaikwad",
+    "profile": {
+      "age": 36,
+      "state": "MH",
+      "is_farmer": true,
+      "owns_cultivable_land": false,
+      "has_aadhaar": true,
+      "ekyc_completed": true,
+      "is_income_tax_payer": false
+    },
+    "expected": {
+      "SCHEME-PM-KISAN": "Not Eligible"
+    }
+  },
+  {
+    "id": "P04_FARMER_MISSING_EKYC",
+    "name": "Mahesh Patel",
+    "profile": {
+      "age": 50,
+      "state": "MP",
+      "is_farmer": true,
+      "owns_cultivable_land": true,
+      "has_aadhaar": true,
+      "ekyc_completed": null,
+      "is_income_tax_payer": false,
+      "is_institutional_landholder": false,
+      "is_constitutional_post_holder": false
+    },
+    "expected": {
+      "SCHEME-PM-KISAN": "Need More Information"
+    }
+  },
+  {
+    "id": "P05_INSTITUTIONAL_LANDHOLDER",
+    "name": "Trust Farming Estate",
+    "profile": {
+      "age": 55,
+      "state": "UP",
+      "is_farmer": true,
+      "owns_cultivable_land": true,
+      "has_aadhaar": true,
+      "ekyc_completed": true,
+      "is_institutional_landholder": true,
+      "is_income_tax_payer": false
+    },
+    "expected": {
+      "SCHEME-PM-KISAN": "Not Eligible"
+    }
+  },
+  {
+    "id": "P06_RURAL_HOMELESS",
+    "name": "Kalu Ram",
+    "profile": {
+      "age": 38,
+      "state": "MP",
+      "is_rural_resident": true,
+      "has_pucca_house": false
+    },
+    "expected": {
+      "SCHEME-PMAY-G": "Eligible"
+    }
+  },
+  {
+    "id": "P07_URBAN_RESIDENT_NO_PUCCA",
+    "name": "Deepak Verma",
+    "profile": {
+      "age": 30,
+      "state": "DL",
+      "is_rural_resident": false,
+      "has_pucca_house": false
+    },
+    "expected": {
+      "SCHEME-PMAY-G": "Not Eligible"
+    }
+  },
+  {
+    "id": "P08_RURAL_PUCCA_OWNER",
+    "name": "Anil Sharma",
+    "profile": {
+      "age": 44,
+      "state": "UP",
+      "is_rural_resident": true,
+      "has_pucca_house": true
+    },
+    "expected": {
+      "SCHEME-PMAY-G": "Not Eligible"
+    }
+  },
+  {
+    "id": "P09_RURAL_MISSING_HOUSING_INFO",
+    "name": "Govind Yadav",
+    "profile": {
+      "age": 41,
+      "state": "UP",
+      "is_rural_resident": true,
+      "has_pucca_house": null
+    },
+    "expected": {
+      "SCHEME-PMAY-G": "Need More Information"
+    }
+  },
+  {
+    "id": "P10_RURAL_KUTCHA_RESIDENT",
+    "name": "Malti Devi",
+    "profile": {
+      "age": 39,
+      "state": "RJ",
+      "is_rural_resident": true,
+      "has_pucca_house": false
+    },
+    "expected": {
+      "SCHEME-PMAY-G": "Eligible"
+    }
+  },
+  {
+    "id": "P11_SENIOR_72_PAN_INDIA",
+    "name": "Prabhakar Joshi",
+    "profile": {
+      "age": 72,
+      "state": "MH",
+      "is_bpl": false,
+      "secc_deprived": false
+    },
+    "expected": {
+      "SCHEME-PM-JAY": "Eligible"
+    }
+  },
+  {
+    "id": "P12_BPL_FAMILY_NON_SENIOR",
+    "name": "Santosh Bind",
+    "profile": {
+      "age": 35,
+      "state": "UP",
+      "is_bpl": true
+    },
+    "expected": {
+      "SCHEME-PM-JAY": "Eligible"
+    }
+  },
+  {
+    "id": "P13_NON_BPL_UNDER_70",
+    "name": "Kavita Nair",
+    "profile": {
+      "age": 45,
+      "state": "MH",
+      "is_bpl": false,
+      "secc_deprived": false
+    },
+    "expected": {
+      "SCHEME-PM-JAY": "Not Eligible"
+    }
+  },
+  {
+    "id": "P14_SECC_DEPRIVED_VERIF",
+    "name": "Birbal Sah",
+    "profile": {
+      "age": 42,
+      "state": "BR",
+      "secc_deprived": true,
+      "is_bpl": false
+    },
+    "expected": {
+      "SCHEME-PM-JAY": "Likely Eligible"
+    }
+  },
+  {
+    "id": "P15_PMJAY_UNKNOWN_SECC_BPL",
+    "name": "Rohan Mehra",
+    "profile": {
+      "age": 40,
+      "state": "DL",
+      "is_bpl": null,
+      "secc_deprived": null
+    },
+    "expected": {
+      "SCHEME-PM-JAY": "Need More Information"
+    }
+  },
+  {
+    "id": "P16_UK_SENIOR_BPL",
+    "name": "Trilochan Bhatt",
+    "profile": {
+      "age": 65,
+      "state": "UK",
+      "is_bpl": true
+    },
+    "expected": {
+      "SCHEME-UK-OLD-AGE": "Eligible"
+    }
+  },
+  {
+    "id": "P17_UK_AGE_55_DISQUALIFIED",
+    "name": "Devendra Rawat",
+    "profile": {
+      "age": 55,
+      "state": "UK"
+    },
+    "expected": {
+      "SCHEME-UK-OLD-AGE": "Not Eligible"
+    }
+  },
+  {
+    "id": "P18_UP_SENIOR_WRONG_STATE",
+    "name": "Harish Chandra",
+    "profile": {
+      "age": 68,
+      "state": "UP"
+    },
+    "expected": {
+      "SCHEME-UK-OLD-AGE": "Not Eligible"
+    }
+  },
+  {
+    "id": "P19_UK_SENIOR_MISSING_AGE",
+    "name": "Basanti Devi",
+    "profile": {
+      "age": null,
+      "state": "UK"
+    },
+    "expected": {
+      "SCHEME-UK-OLD-AGE": "Need More Information"
+    }
+  },
+  {
+    "id": "P20_UK_OCTOGENARIAN",
+    "name": "Ganga Ram",
+    "profile": {
+      "age": 82,
+      "state": "UK"
+    },
+    "expected": {
+      "SCHEME-UK-OLD-AGE": "Eligible",
+      "SCHEME-PM-JAY": "Eligible"
+    }
+  },
+  {
+    "id": "P21_MULTI_QUALIFYING_RURAL_ELDER",
+    "name": "Bhagwan Das",
+    "profile": {
+      "age": 71,
+      "state": "UK",
+      "is_farmer": true,
+      "owns_cultivable_land": true,
+      "has_aadhaar": true,
+      "ekyc_completed": true,
+      "is_income_tax_payer": false,
+      "is_institutional_landholder": false,
+      "is_constitutional_post_holder": false,
+      "is_rural_resident": true,
+      "has_pucca_house": false,
+      "is_bpl": true
+    },
+    "expected": {
+      "SCHEME-PM-KISAN": "Likely Eligible",
+      "SCHEME-PMAY-G": "Eligible",
+      "SCHEME-PM-JAY": "Eligible",
+      "SCHEME-UK-OLD-AGE": "Eligible"
+    }
+  },
+  {
+    "id": "P22_URBAN_IT_PROFESSIONAL",
+    "name": "Siddharth Malhotra",
+    "profile": {
+      "age": 29,
+      "state": "DL",
+      "is_farmer": false,
+      "is_income_tax_payer": true,
+      "has_pucca_house": true,
+      "is_rural_resident": false,
+      "is_bpl": false,
+      "secc_deprived": false
+    },
+    "expected": {
+      "SCHEME-PM-KISAN": "Not Eligible",
+      "SCHEME-PMAY-G": "Not Eligible",
+      "SCHEME-PM-JAY": "Not Eligible",
+      "SCHEME-UK-OLD-AGE": "Not Eligible"
+    }
+  },
+  {
+    "id": "P23_EMPTY_PROFILE",
+    "name": "Unknown Visitor",
+    "profile": {},
+    "expected": {
+      "SCHEME-PM-KISAN": "Need More Information",
+      "SCHEME-PMAY-G": "Need More Information",
+      "SCHEME-PM-JAY": "Need More Information",
+      "SCHEME-UK-OLD-AGE": "Need More Information"
+    }
+  },
+  {
+    "id": "P24_YOUNG_COLLEGE_STUDENT",
+    "name": "Ananya Gupta",
+    "profile": {
+      "age": 19,
+      "state": "UP",
+      "is_farmer": false,
+      "is_bpl": false,
+      "secc_deprived": false
+    },
+    "expected": {
+      "SCHEME-PM-KISAN": "Not Eligible",
+      "SCHEME-PM-JAY": "Not Eligible",
+      "SCHEME-UK-OLD-AGE": "Not Eligible"
+    }
+  },
+  {
+    "id": "P25_CONSTITUTIONAL_POST_HOLDER",
+    "name": "Former Legislator",
+    "profile": {
+      "age": 62,
+      "state": "UP",
+      "is_farmer": true,
+      "owns_cultivable_land": true,
+      "has_aadhaar": true,
+      "ekyc_completed": true,
+      "is_constitutional_post_holder": true,
+      "is_income_tax_payer": false
+    },
+    "expected": {
+      "SCHEME-PM-KISAN": "Not Eligible"
+    }
+  }
+]
+
