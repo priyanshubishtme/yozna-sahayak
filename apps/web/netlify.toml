@@ -1,0 +1,39 @@
+# Netlify Deployment Configuration for Yojana Sahayak React PWA
+# Enforces Blueprint Section 16.1 & Phase 10:
+# - SPA Fallback redirection
+# - Strict security headers & PWA caching headers
+
+[build]
+  base = "apps/web"
+  publish = "dist"
+  command = "npm run build"
+
+# SPA Fallback: Direct all page routes to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security Headers & PWA Caching
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Permissions-Policy = "camera=(), microphone=(self), geolocation=()"
+    Content-Security-Policy = "default-src 'self' http://127.0.0.1:8000 http://localhost:8000 https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: http://127.0.0.1:8000 http://localhost:8000 https:; connect-src 'self' http://127.0.0.1:8000 http://localhost:8000 ws: wss: https:;"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Content-Type = "application/javascript; charset=utf-8"
+
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"
+    Cache-Control = "public, max-age=86400"
+

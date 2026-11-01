@@ -1,0 +1,2 @@
+export { CentreLocator } from './CentreLocator';
+
