@@ -1,0 +1,59 @@
+{
+  "name": "योजना सहायक | Yojana Sahayak",
+  "short_name": "YojanaSahayak",
+  "description": "Bilingual, evidence-grounded government welfare scheme discovery and deterministic eligibility assistant for India.",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#10b981",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "hi",
+  "categories": ["government", "utilities", "social", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "योजनाएं खोजें (Discover)",
+      "short_name": "Discover",
+      "description": "Explore verified central and state government schemes",
+      "url": "/app/discover",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "पात्रता जांचें (Eligibility)",
+      "short_name": "Eligibility",
+      "description": "Check deterministic eligibility against statutory rules",
+      "url": "/app/eligibility",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "एआई सहायक (AI Chat)",
+      "short_name": "Chat",
+      "description": "Ask questions with 100% grounded official citations",
+      "url": "/app/chat",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "सहेजी गई योजनाएं (Saved Schemes)",
+      "short_name": "Saved",
+      "description": "Offline-accessible saved schemes and document checklists",
+      "url": "/app/saved",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    }
+  ]
+}
+
