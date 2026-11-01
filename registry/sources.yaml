@@ -1,0 +1,104 @@
+# Approved Source Seed Registry
+# All sources start in pending_review or disabled state until compliance & robot checks pass.
+# myScheme is explicitly disabled_pending_written_authorization per Blueprint Section 3.3.
+
+sources:
+  - source_id: SRC-MYSCHEME-DIR
+    name: "myScheme Portal (Discovery Reference Only)"
+    base_url: "https://www.myscheme.gov.in"
+    source_family: "discovery_portal"
+    jurisdiction: "IN"
+    language_hints: ["en", "hi"]
+    source_role: "discovery_pointers_only"
+    adapter_key: "myscheme_portal_v1"
+    fetch_mode: "manual"
+    allowed_content_types: ["text/html"]
+    permission_status: "written_authorization_required"
+    automation_status: "disabled"
+    written_authorization_reference: null
+    notes: "myScheme Terms of Use require express written authorization for automated access. Automation is strictly disabled. Manual discovery curation only."
+    request_interval_seconds: 10
+    max_pages_per_run: 5
+    max_download_mb: 10
+    schedule_cron: "0 4 * * *"
+    enabled: false
+
+  - source_id: SRC-INDIA-GOV
+    name: "National Portal of India (India.gov.in Scheme Directory)"
+    base_url: "https://www.india.gov.in/my-government/schemes"
+    source_family: "india_gov"
+    jurisdiction: "IN"
+    language_hints: ["en", "hi"]
+    source_role: "discovery_and_metadata"
+    adapter_key: "india_gov_listing_v1"
+    fetch_mode: "requests"
+    allowed_content_types: ["text/html"]
+    permission_status: "pending_review"
+    automation_status: "disabled"
+    written_authorization_reference: null
+    notes: "Requires robots.txt and terms inspection before enabling automated discovery."
+    request_interval_seconds: 5
+    max_pages_per_run: 20
+    max_download_mb: 25
+    schedule_cron: "0 3 * * *"
+    enabled: false
+
+  - source_id: SRC-MIN-AGRI
+    name: "Ministry of Agriculture & Farmers Welfare (PM-KISAN Guidelines)"
+    base_url: "https://pmkisan.gov.in"
+    source_family: "central_ministry"
+    jurisdiction: "IN"
+    language_hints: ["en", "hi"]
+    source_role: "discovery_and_authoritative_documents"
+    adapter_key: "pmkisan_guidelines_v1"
+    fetch_mode: "requests"
+    allowed_content_types: ["text/html", "application/pdf"]
+    permission_status: "pending_review"
+    automation_status: "disabled"
+    written_authorization_reference: null
+    notes: "Authoritative source for PM-KISAN operational guidelines and notification circulars."
+    request_interval_seconds: 5
+    max_pages_per_run: 15
+    max_download_mb: 40
+    schedule_cron: "0 2 * * *"
+    enabled: false
+
+  - source_id: SRC-UK-SOCIAL-WELFARE
+    name: "Uttarakhand Social Welfare Department (Social Pensions)"
+    base_url: "https://socialwelfare.uk.gov.in"
+    source_family: "uttarakhand_state"
+    jurisdiction: "IN-UK"
+    language_hints: ["hi", "en"]
+    source_role: "discovery_and_authoritative_documents"
+    adapter_key: "uk_social_welfare_v1"
+    fetch_mode: "requests"
+    allowed_content_types: ["text/html", "application/pdf"]
+    permission_status: "pending_review"
+    automation_status: "disabled"
+    written_authorization_reference: null
+    notes: "Authoritative source for Uttarakhand Old Age, Widow, and Disability Pension government orders."
+    request_interval_seconds: 6
+    max_pages_per_run: 20
+    max_download_mb: 50
+    schedule_cron: "0 1 * * *"
+    enabled: false
+
+  - source_id: SRC-MIN-EDUCATION
+    name: "Department of Higher Education (Central Sector Scholarship)"
+    base_url: "https://www.education.gov.in/scholarships"
+    source_family: "central_ministry"
+    jurisdiction: "IN"
+    language_hints: ["en", "hi"]
+    source_role: "discovery_and_authoritative_documents"
+    adapter_key: "education_scholarships_v1"
+    fetch_mode: "requests"
+    allowed_content_types: ["text/html", "application/pdf"]
+    permission_status: "pending_review"
+    automation_status: "disabled"
+    written_authorization_reference: null
+    notes: "Authoritative notifications for Central Sector Scheme of Scholarship for College and University Students."
+    request_interval_seconds: 5
+    max_pages_per_run: 15
+    max_download_mb: 30
+    schedule_cron: "0 2 * * *"
+    enabled: false

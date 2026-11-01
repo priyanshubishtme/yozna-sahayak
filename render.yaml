@@ -1,0 +1,67 @@
+# Render Deployment Blueprint for Yojana Sahayak
+# Enforces Blueprint Section 16.1 & 16.2:
+# 1. FastAPI Web Service (REST + Grounded SSE Chat)
+# 2. Dedicated Single-Instance APScheduler Worker Process
+
+services:
+  # Web API Service
+  - type: web
+    name: yojana-sahayak-api
+    runtime: python
+    plan: starter
+    region: oregon
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: "/health"
+    autoDeploy: true
+    disk:
+      name: yojana-data
+      mountPath: /data
+      sizeGB: 10
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: PYTHONPATH
+        value: .
+      - key: DATA_DIR
+        value: /data
+      - key: DATABASE_URL
+        value: "sqlite+aiosqlite:////data/yojana_sahayak.db"
+      - key: DATABASE_SYNC_URL
+        value: "sqlite:////data/yojana_sahayak.db"
+      - key: SCHEDULER_PROCESS_MODE
+        value: "false" # Disabled in web server; runs in worker
+      - key: GROQ_MODEL
+        value: "llama-3.3-70b-versatile"
+      - key: GROQ_API_KEY
+        sync: false
+      - key: ADMIN_SESSION_SECRET
+        generateValue: true
+
+  # Dedicated APScheduler Background Worker
+  - type: worker
+    name: yojana-sahayak-scheduler
+    runtime: python
+    plan: starter
+    region: oregon
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "python -m backend.app.scheduler.run"
+    autoDeploy: true
+    disk:
+      name: yojana-data
+      mountPath: /data
+      sizeGB: 10
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: PYTHONPATH
+        value: .
+      - key: DATA_DIR
+        value: /data
+      - key: DATABASE_URL
+        value: "sqlite+aiosqlite:////data/yojana_sahayak.db"
+      - key: DATABASE_SYNC_URL
+        value: "sqlite:////data/yojana_sahayak.db"
+      - key: SCHEDULER_PROCESS_MODE
+        value: "true" # Active single instance
+
